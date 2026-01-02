@@ -89,17 +89,19 @@ span {
     color: var(--hover-color);
 }
 
-.navlist {
+.nav-list {
     display: flex;
     
 }
 .nav-list a {
+    display: inline-block;
     color: var(--text-color);
    padding: 10px 20px;
     font-weight: 500;
     transition: 0.3s;
-    
- ;
+    animation: slideAnimation 1s ease forwards;
+    animation-delay: calc(.3s *var(--i));
+    opacity: 0;
 }
 .nav-list a:hover {
     color: var(--hover-color);
@@ -373,8 +375,8 @@ section {
     font-size: .5rem;
     position: absolute;
     padding: 10px;
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 69% 31% 66% 34% / 21% 30% 70% 79%;
     display: block;
     box-shadow: var(--neon-box-shadow);
@@ -382,14 +384,14 @@ section {
     outline: 2px solid var(--bg-color);
     z-index: 100;
     animation: morph 6s linear infinite;
+    text-align: center;
 }
 .info-about1 {
-    left: 10%;
-    top: 40%;
+    top: 20%;
 }
 .info-about2 {
-    left: 30%;
-    top: 15%;
+    left: 80%;
+    top: 10%;
 }
 .info-about3 {
     left: 30%;
@@ -398,14 +400,14 @@ section {
 .info-about1  span ,
 .info-about2  span ,
 .info-about3  span {
-    font-size: 1.4rem;
-    font-weight: 200;
+    font-size: 2rem;
+    font-weight: 600;
     color: var(--hover-color);
 }
 .info-about1 p ,
 .info-about2 p ,
 .info-about3 p {
-    font-size: .6rem;
+    font-size: .7rem;
     font-weight: 300;
     color: #fdfdfd;
     margin-top: 5px;
@@ -777,6 +779,37 @@ footer a i {
 }
 
 
+/* parallax */
+
+.scroll-scale {
+    opacity: 0;
+    transform: scale(.9);
+    transition: all 2s ;
+}
+.scroll-bottom {
+    opacity: 0;
+    transform: translateY(300px);
+    transition: 2s ;
+}
+.scroll-top {
+    opacity: 0;
+    transform: translateY(-300px);
+    transition: 3s ;
+}
+
+
+.show-items {
+    opacity: 1;
+    transform: translate(0);
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -856,6 +889,18 @@ footer a i {
     100% {
         background: var(--hover-color);
         box-shadow: var(--neon-box-shadow);
+    }
+}
+
+
+@keyframes slideAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -1003,14 +1048,14 @@ s.about {
     }
     .info-about3 {
         top: 70px;
-       left: 290px;
+       left: 250px;
     }
     .info-about2 {
         left: 50px;
     }
     .info-about1 {
         left: 100px;
-        top: 250px;
+        top: 200px;
     }
     .info-about1,
     .info-about2,
