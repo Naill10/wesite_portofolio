@@ -756,11 +756,13 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    text-align: center;
  }
 
  footer p {
-    color: #bdbdbd;
+    color: #818080;
+    text-align: center;
+  
  }
 
 footer a {
