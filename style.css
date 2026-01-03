@@ -422,6 +422,7 @@ section {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--hover-color);
+    animation: zoomIn 2s ease forwards;
 }
 
 .main-text h2 {
@@ -1013,6 +1014,68 @@ footer a i {
   transform: scale(1.08);
 }
 
+/* /////// infinite scrolls /////// */
+
+.infinite {
+  width: 100%;
+  overflow: hidden;
+    margin-bottom: 80px; /* atur jarak ke judul */
+   
+    animation: zoomIn 2s ease forwards;
+}
+
+.carousel {
+  display: flex;
+  width: max-content;
+  bottom: 100px ;
+}
+
+.group {
+  display: flex;
+  gap: 40px;
+  padding-right: 40px;
+  animation: scroll 20s linear infinite;
+}
+
+.infinite:hover .group {
+  animation-play-state: paused;
+}
+
+.card {
+width: 400px;   /* dari 200px */
+  height: 200px;       /* dari 120px */
+color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card img {
+  width: 110px;
+  height: auto;
+}
+.card:hover {
+  transform: rotateZ(10deg) scale(1.08);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1116,6 +1179,15 @@ footer a i {
     transform: scale(1);
   }
 }
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 
 
 
