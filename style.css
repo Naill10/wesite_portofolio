@@ -210,10 +210,16 @@ section {
 }
 .btn-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 320px;
     height: 45px;
+    gap: 10px;
     
+}
+
+.btn-box .btn {
+   text-align: center;
+   justify-content: center;
 }
 .btn-box .btn {
     display: inline-flex;
@@ -343,6 +349,19 @@ section {
     animation: glowpulse 8s ease-in-out infinite;
     border-radius: 50% 5% 50% 5%;
     border: 5px solid var(--bg-color);
+}
+
+.about-content {
+  text-align: center;
+    display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontal center */
+}
+
+
+.about-content .btn-box{
+  text-align: center;
+  justify-content: center;
 }
     
 .about-content span {
@@ -1253,7 +1272,10 @@ color: #fff;
     font-size: 24px;
     z-index: 10001;
   }
-
+  .about-content {
+    text-align: center;
+    margin-top: 2rem;
+  }
  
 
   .nav-list {
@@ -1314,10 +1336,8 @@ color: #fff;
     text-align: center;
     justify-content: center;
   }
-.btn-box .btn-read {
-   left: 280px;
-   align-items: center;
-  }
+
+  
   
   .about .img-about img{
     max-width: 450px;
@@ -1375,9 +1395,7 @@ color: #fff;
         max-width: 80%;
         text-align: center;
     }
-    .btn-box .btn-read {
-   left: 100px;
-  }
+   
      .words span{
         left: 100px;
         font-size: 22px;
@@ -1389,7 +1407,7 @@ color: #fff;
         justify-content: center;
     }
     .info-about3 {
-        top: 70px;
+        top: 20px;
        left: 250px;
     }
     .info-about2 {
