@@ -139,16 +139,19 @@ scrollTop.forEach((el) => observer.observe(el));
 
 //////loading screen//////////////////////////////////////  
 
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("loading-screen");
+  if (!loader) return;
 
-  window.addEventListener("load", function () {
-    const loader = document.getElementById("loading-screen");
+  setTimeout(() => {
     loader.style.opacity = "0";
-    loader.style.transition = "opacity 5s ease";
+    loader.style.transition = "opacity 0.5s ease";
 
     setTimeout(() => {
       loader.style.display = "none";
-    }, 1200);
-  });
+    }, 500);
+  }, 1000); // delay dikit biar kelihatan
+});
 
 
 
