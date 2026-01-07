@@ -138,19 +138,16 @@ scrollTop.forEach((el) => observer.observe(el));
 
 
 //////loading screen//////////////////////////////////////  
-
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loading-screen");
   if (!loader) return;
 
-  setTimeout(() => {
-    loader.style.opacity = "0";
-    loader.style.transition = "opacity 0.5s ease";
+  loader.style.transition = "opacity 0.5s ease";
+  loader.style.opacity = "0";
 
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 1000);
-  }, 400); // delay dikit biar kelihatan
+  loader.addEventListener("transitionend", () => {
+    loader.style.display = "none";
+  }, { once: true });
 });
 
 
