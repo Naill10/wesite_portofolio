@@ -134,3 +134,28 @@ scrollBottom.forEach((el) => observer.observe(el));
 
 const scrollTop = document.querySelectorAll('.scroll-top');
 scrollTop.forEach((el) => observer.observe(el));
+
+
+
+//////loading screen//////////////////////////////////////  
+
+
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loading-screen");
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 5s ease";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 1200);
+  });
+
+
+
+
+
+
+
+
+
+
