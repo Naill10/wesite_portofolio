@@ -149,8 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       loader.style.display = "none";
-    }, 500);
-  }, 1000); // delay dikit biar kelihatan
+    }, 1000);
+  }, 400); // delay dikit biar kelihatan
 });
 
 
