@@ -143,13 +143,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!loader) return;
 
   loader.style.transition = "opacity 0.5s ease";
-  loader.style.opacity = "0";
 
-  loader.addEventListener("transitionend", () => {
-    loader.style.display = "none";
-  }, { once: true });
+  // ⏱️ JEDA 1 DETIK
+  setTimeout(() => {
+    loader.style.opacity = "0";
+
+    loader.addEventListener("transitionend", () => {
+      loader.style.display = "none";
+    }, { once: true });
+
+  }, 2000); // 1000 ms = 1 detik
 });
-
 
 
 
