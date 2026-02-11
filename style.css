@@ -136,6 +136,7 @@ span {
 }
 
 
+
 #menu-icon {
     font-size: 1.5rem;
     z-index: 10001;
@@ -305,6 +306,7 @@ section {
     border-radius: 5px;
     position: relative;overflow: hidden;
     z-index: 1;
+    animation: slideBottom 1s ease forwards;
 }
 .social-icons a i {
     font-size: 1.4rem;
@@ -1153,6 +1155,16 @@ color: #fff;
 }
 
 
+@keyframes slideBottom {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 
 
@@ -1320,6 +1332,7 @@ color: #fff;
 
     .social-icons {
         margin-top: 2rem;
+
 
     }
 }
