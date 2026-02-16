@@ -18,9 +18,9 @@ a, button, .coll-box, .cer-box {
 }
 :root {
   /* Core Colors */
-  --text-color: #eaf1ff;
-  --muted-text: #9aa4b2;
-  --hover-color: #ffffff;
+  --text-color: #00b7ff;
+  --muted-text: #003074;
+  --hover-color: #00aaff;
   --bg-color: #070b12;          
   --second-bg-color: #090f1b;  
   --card-bg: #151d2e;
@@ -741,7 +741,7 @@ section {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: linear-gradient(rgba(0,0,0,.2),#2f2f2f);
+    background: linear-gradient(rgba(0,0,0,.2),#000876);
     display: flex;
     align-items: center;
     justify-content: center;
