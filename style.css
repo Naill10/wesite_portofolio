@@ -380,8 +380,8 @@ section {
 
 .img-box img {
    width: 100%;
-   max-width: 650px;
-   height: auto; 
+   max-width: 420px;
+   height: 100%; 
    border-radius: 5% 50% 5% 50%;
    border: 2px solid var(--hover-color);
    transition: .6s;
@@ -405,7 +405,7 @@ section {
     position: relative;
 }
 .about .img-about img {
-    max-width: 500px;
+    max-width: 450px;
     height: auto;
     animation: glowpulse 8s ease-in-out infinite;
     border-radius: 50% 5% 50% 5%;
@@ -638,9 +638,16 @@ section {
     animation: javascript 4s;
 }
 .skill-bar .bar .css {
-    width: 75%;
+    width: 85%;
     animation: css 5s;
 }
+
+.skill-bar .bar .php {
+    width: 76%;
+    animation: php 2s;
+}
+
+
 
 /* skill right section */
 
@@ -927,7 +934,7 @@ footer a i {
   position: absolute;
   inset: 0;
   opacity: 0;
-  background: linear-gradient(rgba(0,0,0,.4), #a5a1a1);
+  background: linear-gradient(rgba(0,0,0,.4), #0400ff);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1242,7 +1249,11 @@ color: #fff;
 }
 @keyframes css {
     0% { width: 0; }
-    100% { width: 75%; }
+    100% { width: 85%; }
+}
+@keyframes php {
+    0% { width: 0; }
+    100% { width: 76%; }
 }
 
 
