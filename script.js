@@ -178,6 +178,38 @@ window.addEventListener("scroll", () => {
   });
 });
 
+////orbiting icons////////////////////////////////
+
+
+const icons = document.querySelectorAll(".orbit");
+let angle = 0;
+const radius = 230;
+
+function animate() {
+  angle += 0.01;
+
+  icons.forEach((icon, i) => {
+    let currentAngle = angle + (i * (Math.PI * 2 / icons.length));
+
+    let x = Math.cos(currentAngle) * radius;
+    let y = Math.sin(currentAngle) * radius;
+
+    icon.style.left = 140 + x + "px";
+    icon.style.top = 200 + y + "px";
+
+    // 🔥 efek zoom 3D
+    let scale = (Math.sin(currentAngle) + 1.5) / 2;
+    icon.style.transform = `scale(${scale})`;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+
+
+
 
 
 
