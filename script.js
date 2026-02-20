@@ -233,6 +233,26 @@ closeBtnMobile.addEventListener("click", () => {
   modal.classList.remove("show");
 });
 
+/////scroll animasi  service///////
+const boxes = document.querySelectorAll(".services-box");
+
+function reveal() {
+  boxes.forEach((box, i) => {
+    const rect = box.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
+      setTimeout(() => {
+        box.classList.add("show");
+      }, i * 200);
+    } else {
+      box.classList.remove("show"); // reset animasi
+    }
+  });
+}
+
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+
 
 
 

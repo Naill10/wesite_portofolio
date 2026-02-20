@@ -661,6 +661,17 @@ section {
 
 /* services section */
 
+.services-box {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all 0.7s ease-out;
+}
+
+.services-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .main-text {
     width: 100%;
     text-align: center;
@@ -1056,6 +1067,12 @@ footer a i {
     opacity: 1;
     transform: translate(0);
 }
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.delay-5 { transition-delay: 1s;}
 
 
 
