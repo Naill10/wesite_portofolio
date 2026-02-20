@@ -533,6 +533,132 @@ section {
     text-align: center;
 }
 
+/* Overlay */
+.modal-close-mobile {
+  display: none;
+}
+.about-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+/* Active */
+.about-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Content */
+.about-modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 620px;
+  border-radius: 24px;
+  padding: 60px 25px 35px; /* padding atas diperbesar */
+  position: relative;
+  transform: scale(0.9);
+  transition: 0.35s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.about-modal.show .about-modal-content {
+  transform: scale(1);
+}
+
+/* Close */
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #777;
+  transition: 0.2s;
+}
+.close-modal:hover {
+  color: #000;
+}
+
+/* Header */
+.modal-header {
+  text-align: center;
+  margin-top: -50px; /* bikin foto naik */
+}
+
+.modal-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.modal-header h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.modal-header p {
+  color: #666;
+  font-size: 15px;
+}
+
+/* Story */
+.modal-story {
+  margin-top: 18px;
+  color: #555;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Skills */
+.modal-skills {
+  margin: 26px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal-skills span {
+  background: #f3f3f3;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.modal-skills span:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* CTA */
+.modal-cta {
+  text-align: center;
+}
+
+.modal-cta .btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  transition: 0.25s;
+}
+
+.modal-cta .btn:hover {
+  transform: translateY(-2px);
+}
+
 /* services section */
 
 .main-text {
@@ -1559,6 +1685,21 @@ color: #fff;
     grid-template-columns: 1fr;
   }
 
+  .about-modal-content {
+    padding: 30px 22px;
+    border-radius: 20px;
+  }
+
+  .modal-header h2 {
+    font-size: 21px;
+  }
+
+  .modal-story {
+    font-size: 14px;
+  }
+
+
+
 }
 
 
@@ -1570,6 +1711,94 @@ color: #fff;
         ----neon-box-shadow: 0 0 2rem #ffffff;
         --h2-font: 3rem;
     }
+
+   /* Modal full screen */
+ 
+
+  
+  /* Header lebih compact */
+  .close-modal{
+    display: none;
+  }
+    .modal-close-mobile {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .close-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  /* Hide icon silang di mobile */
+  .close-modal {
+    display: none;
+  }
+
+  .modal-header {
+    margin-top: 0;
+  }
+
+  .modal-header img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 8px;
+  }
+
+  .modal-header h2 {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .modal-header p {
+    font-size: 12px;
+  }
+
+  /* Story lebih kecil dan rapat */
+  .modal-story {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  /* Skills lebih kecil */
+  .modal-skills {
+    margin: 18px 0;
+    gap: 6px;
+  }
+
+  .modal-skills span {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  /* CTA lebih kecil */
+  .modal-cta .btn {
+    font-size: 13px;
+    padding: 10px 22px;
+  }
+
+  .about-modal {
+    align-items: flex-start;
+  }
+
+  .about-modal-content {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    padding: 150px 20px 20px;
+    overflow-y: auto;
+  }
+
+
+  .about-modal.show .about-modal-content {
+    transform: translateY(0);
+  }
 
     .change-text{
         display: grid;

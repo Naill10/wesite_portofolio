@@ -206,6 +206,32 @@ function animate() {
 }
 
 animate();
+// modal about
+
+const readBtn = document.querySelector(".btn-read");
+const modal = document.getElementById("aboutModal");
+const closeModal = document.querySelector(".close-modal");
+
+readBtn.addEventListener("click", () => {
+  modal.classList.add("show");
+});
+
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("show");
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("show");
+  }
+});
+
+///close modal//
+const closeBtnMobile = document.querySelector(".close-btn");
+
+closeBtnMobile.addEventListener("click", () => {
+  modal.classList.remove("show");
+});
 
 
 
