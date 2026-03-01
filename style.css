@@ -947,6 +947,7 @@ section {
 .port-content p {
     font-size: .8rem;
     margin: 5px 0 15px 0;
+    color: white;
 }
 
 .port-content a {
