@@ -137,23 +137,6 @@ scrollTop.forEach((el) => observer.observe(el));
 
 
 
-//////loading screen//////////////////////////////////////  
-document.addEventListener("DOMContentLoaded", () => {
-  const loader = document.getElementById("loading-screen");
-  if (!loader) return;
-
-  loader.style.transition = "opacity 0.5s ease";
-
-  // ⏱️ JEDA 1 DETIK
-  setTimeout(() => {
-    loader.style.opacity = "0";
-
-    loader.addEventListener("transitionend", () => {
-      loader.style.display = "none";
-    }, { once: true });
-
-  }, 2000); // 1000 ms = 1 detik
-});
 
 
 
@@ -179,27 +162,32 @@ window.addEventListener("scroll", () => {
 });
 
 ////orbiting icons////////////////////////////////
-
-
 const icons = document.querySelectorAll(".orbit");
+const container = document.querySelector(".home-img");
+
 let angle = 0;
-const radius = 230;
+const radius = 255; // sesuaikan
 
 function animate() {
-  angle += 0.01;
+  angle += 0.005;
 
   icons.forEach((icon, i) => {
-    let currentAngle = angle + (i * (Math.PI * 2 / icons.length));
+    const currentAngle = angle + (i * (Math.PI * 2 / icons.length));
 
-    let x = Math.cos(currentAngle) * radius;
-    let y = Math.sin(currentAngle) * radius;
+    const x = Math.cos(currentAngle) * radius;
+    const y = Math.sin(currentAngle) * radius;
 
-    icon.style.left = 140 + x + "px";
-    icon.style.top = 200 + y + "px";
+    // posisi dari CENTER
+    icon.style.left = `calc(50% + ${x}px)`;
+    icon.style.top = `calc(50% + 60px + ${y}px)`;
 
-    // 🔥 efek zoom 3D
-    let scale = (Math.sin(currentAngle) + 1.5) / 2;
-    icon.style.transform = `scale(${scale})`;
+    // depth effect
+    const depth = (Math.sin(currentAngle) + 1) / 2;
+    const scale = 0.7 + depth * 0.5;
+
+    icon.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    icon.style.opacity = 0.5 + depth * 0.5;
+    icon.style.zIndex = Math.floor(depth * 100);
   });
 
   requestAnimationFrame(animate);

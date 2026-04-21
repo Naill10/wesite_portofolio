@@ -386,7 +386,12 @@ section {
   position: absolute;
   font-size: 28px;
   color: #00c3ff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+
 
 
 .profile {
@@ -548,16 +553,30 @@ section {
 .about-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(0px);
+
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+
   opacity: 0;
   pointer-events: none;
-  transition: 0.3s ease;
+
+  transition: 
+    background 0.4s ease,
+    backdrop-filter 0.4s ease,
+    opacity 0.3s ease;
+
   z-index: 999;
+}
+
+.about-modal.show {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Active */
@@ -572,15 +591,22 @@ section {
   width: 100%;
   max-width: 620px;
   border-radius: 24px;
-  padding: 60px 25px 35px; /* padding atas diperbesar */
+  padding: 60px 25px 35px;
   position: relative;
-  transform: scale(0.9);
-  transition: 0.35s ease;
+
+  transform: scale(0.85) translateY(40px);
+  opacity: 0;
+
+  transition: 
+    transform 0.45s cubic-bezier(.22,1,.36,1),
+    opacity 0.35s ease;
+
   max-height: 90vh;
   overflow-y: auto;
 }
 .about-modal.show .about-modal-content {
-  transform: scale(1);
+  transform: scale(1) translateY(0);
+  opacity: 1;
 }
 
 /* Close */
@@ -610,6 +636,15 @@ section {
   object-fit: cover;
   border: 5px solid #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  transform: scale(0.8);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.about-modal.show .modal-header img {
+  transform: scale(1);
+  opacity: 1;
 }
 .modal-header h2 {
   font-size: 24px;
@@ -649,6 +684,46 @@ section {
 .modal-skills span:hover {
   background: #000;
   color: #fff;
+}
+
+.modal-header h2,
+.modal-header p,
+.modal-story,
+.modal-skills,
+.modal-cta {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.4s ease;
+}
+
+.about-modal.show .modal-header h2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.about-modal.show .modal-header p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.about-modal.show .modal-story {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.about-modal.show .modal-skills {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.about-modal.show .modal-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
 }
 
 /* CTA */
@@ -1502,10 +1577,18 @@ color: #fff;
   }
 }
 @keyframes glowpulse {
-  0%, 100% { opacity: 0.3; box-shadow: 0 0 5px var(--hover-color) }
-  50% { opacity: 1; box-shadow: 0 0 1000px var(--hover-color) }
+  0%, 100% { 
+    opacity: 0.5; 
+    box-shadow: 0 0 10px var(--hover-color),
+                0 0 20px var(--hover-color);
+  }
+  50% { 
+    opacity: 1; 
+    box-shadow: 0 0 25px var(--hover-color),
+                0 0 50px var(--hover-color),
+                0 0 80px rgba(0, 183, 255, 0.4);
+  }
 }
-
 @keyframes glow {
     0% {
         background: var(--bg-color);
