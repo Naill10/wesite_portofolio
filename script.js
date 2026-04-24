@@ -162,14 +162,16 @@ window.addEventListener("scroll", () => {
 });
 
 ////orbiting icons////////////////////////////////
-const icons = document.querySelectorAll(".orbit");
+ const icons = document.querySelectorAll(".orbit");
 const container = document.querySelector(".home-img");
 
 let angle = 0;
-const radius = 255; // sesuaikan
 
 function animate() {
   angle += 0.005;
+
+  const rect = container.getBoundingClientRect();
+  const radius = rect.width / 2.2; // ← ini kunci responsif
 
   icons.forEach((icon, i) => {
     const currentAngle = angle + (i * (Math.PI * 2 / icons.length));
@@ -177,13 +179,12 @@ function animate() {
     const x = Math.cos(currentAngle) * radius;
     const y = Math.sin(currentAngle) * radius;
 
-    // posisi dari CENTER
     icon.style.left = `calc(50% + ${x}px)`;
-    icon.style.top = `calc(50% + 60px + ${y}px)`;
+    icon.style.top = `calc(70% + ${y}px)`; // hapus 60px biar center bener
 
-    // depth effect
     const depth = (Math.sin(currentAngle) + 1) / 2;
     const scale = 0.7 + depth * 0.5;
+    const offsetY = rect.height * 0.1;
 
     icon.style.transform = `translate(-50%, -50%) scale(${scale})`;
     icon.style.opacity = 0.5 + depth * 0.5;

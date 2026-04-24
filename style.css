@@ -72,6 +72,29 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+ .line {
+      width: 90%;
+      height: 4px;
+      border-radius: 4px;
+
+      /* warna garis */
+      background: linear-gradient(
+        90deg,
+        #002a73 0%,
+        #0b3d91 40%,
+        #4da6ff 50%,
+        #002e7e 60%,
+        #002b76 100%
+      );
+
+      /* biar bisa dianimasikan */
+      background-size: 200% 100%;
+
+      /* animasi gerak */
+      animation: moveLine 2s linear infinite;
+    }
+
+    
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -447,7 +470,7 @@ section {
     position: relative;
 }
 .about .img-about img {
-    max-width: 400px;
+    max-width: 350px;
     height: auto;
     animation: glowpulse 8s ease-in-out infinite;
     border-radius: 50% 5% 50% 5%;
@@ -696,7 +719,7 @@ section {
   transition: 0.4s ease;
 }
 
-.about-modal.show .modal-header h2 {
+/* .about-modal.show .modal-header h2 {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.1s;
@@ -740,7 +763,7 @@ section {
 
 .modal-cta .btn:hover {
   transform: translateY(-2px);
-}
+} */
 
 /* services section */
 
@@ -1496,7 +1519,14 @@ color: #fff;
 }
 
 
-
+@keyframes moveLine {
+      0% {
+        background-position: 100% 0;
+      }
+      100% {
+        background-position: -100% 0;
+      }
+    }
 
 
 
@@ -1828,7 +1858,7 @@ color: #fff;
 }
 
 
-  @media (max-width: 576px) {
+  @media (max-width:600px) {
   /* HP */
  :root {
         --big-font: 2.2rem;
@@ -1961,7 +1991,7 @@ color: #fff;
     }
     
     .about .img-about img {
-        max-width: 80%;
+        max-width: 70%;
         text-align: center;
     }
    
@@ -1976,20 +2006,21 @@ color: #fff;
         justify-content: center;
     }
     .info-about3 {
-        top: 20px;
-       left: 250px;
+        top:70px;
+       left: 290px;
     }
     .info-about2 {
         left: 50px;
+        top: 70px;
     }
     .info-about1 {
         left: 100px;
-        top: 200px;
+        top: 65%;
     }
     .info-about1,
     .info-about2,
     .info-about3 {
-        width: 65px;
+        width: 80px;
         height: 65px;
        
     }
