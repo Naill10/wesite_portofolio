@@ -328,33 +328,20 @@ section {
   gap: 5px;
 }
 
-.back-btn{
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: linear-gradient(135deg, #3f3f3f, #1022bd);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 30px;
-    box-shadow: 0 8px 20px (var(--active)); 
-    transition: 0.3s ease;
-    z-index: 999;
-}
-
-.back-btn i{
-    font-size: 14px;
-}
-
-.back-btn:hover{
-    transform: translateX(-4px);
-    box-shadow: 0 12px 30px rgba(29, 55, 226, 0.868);
-    background: linear-gradient(135deg, #4b4b4b, #717171);
-}
+.back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #0091ff;
+      text-decoration: none;
+      font-size: 18px;
+      z-index: 100;
+      transition: opacity 0.2s;
+    }
+    .back-btn:hover { opacity: 0.5; }
 
 
 .social-icons a {
