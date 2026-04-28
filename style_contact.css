@@ -5,6 +5,7 @@
       font-family: 'Segoe UI', sans-serif;
       min-height: 100vh;
     }
+    
     .line {
       width: 90%;
       height: 4px;
@@ -13,11 +14,11 @@
       /* warna garis */
       background: linear-gradient(
         90deg,
-        #004d73 0%,
-        #0082b6 40%,
-        #4da6ff 50%,
-        #00547e 60%,
-        #005776 100%
+            #00357699 0%,
+        #005091 40%,
+        #00b3ff 50%,
+        #007ffe 60%,
+        #003176 100%
       );
 
       /* biar bisa dianimasikan */
@@ -246,6 +247,7 @@
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
+    margin-top: 50px;
   }
   .contact-right {
     order: -1;
@@ -260,6 +262,7 @@
     width: 100%;
     max-width: 280px;
   }
+  
 }
 
 @media (max-width: 480px) {
@@ -269,4 +272,5 @@
   h1 {
     font-size: 22px !important;
   }
+  
 }
