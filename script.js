@@ -171,7 +171,7 @@ function animate() {
   angle += 0.005;
 
   const rect = container.getBoundingClientRect();
-  const radius = rect.width / 2.2; // ← ini kunci responsif
+  const radius = rect.width / 2.3; // ← ini kunci responsif
 
   icons.forEach((icon, i) => {
     const currentAngle = angle + (i * (Math.PI * 2 / icons.length));
@@ -195,59 +195,66 @@ function animate() {
 }
 
 animate();
-// modal about
 
-const readBtn = document.querySelector(".btn-read");
-const modal = document.getElementById("aboutModal");
-const closeModal = document.querySelector(".close-modal");
+// ===== Scroll Reveal Animation untuk About Section =====
+const aboutObserverOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+};
 
-readBtn.addEventListener("click", () => {
-  modal.classList.add("show");
+const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+        }
+    });
+}, aboutObserverOptions);
+
+document.querySelectorAll(".img-about, .about-content, .about-block").forEach(el => {
+    aboutObserver.observe(el);
 });
 
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("show");
-});
+// ===== Floating Animation untuk Dekorasi (lines, X) =====
+const decoElements = [
+    { selector: ".deco-lines", range: 6, speed: 4000 },
+    { selector: ".deco-x1", range: 10, speed: 2500 },
+    { selector: ".deco-x2", range: 10, speed: 3500 }
+];
 
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("show");
-  }
-});
+decoElements.forEach(({ selector, range, speed }) => {
+    const el = document.querySelector(selector);
+    if (!el) return;
 
-///close modal//
-const closeBtnMobile = document.querySelector(".close-btn");
-
-closeBtnMobile.addEventListener("click", () => {
-  modal.classList.remove("show");
-});
-
-/////scroll animasi  service///////
-const boxes = document.querySelectorAll(".services-box");
-
-function reveal() {
-  boxes.forEach((box, i) => {
-    const rect = box.getBoundingClientRect();
-
-    if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
-      setTimeout(() => {
-        box.classList.add("show");
-      }, i * 200);
-    } else {
-      box.classList.remove("show"); // reset animasi
+    let start = Math.random() * 1000;
+    function floatAnim(timestamp) {
+        if (!start) start = timestamp;
+        const elapsed = timestamp - start;
+        const y = Math.sin(elapsed / speed) * range;
+        el.style.transform = `translateY(${y}px)`;
+        requestAnimationFrame(floatAnim);
     }
-  });
+    requestAnimationFrame(floatAnim);
+});
+
+// ===== Tilt Effect ringan pas hover foto =====
+const imgAbout = document.querySelector(".img-about");
+
+if (imgAbout) {
+    imgAbout.addEventListener("mousemove", (e) => {
+        const rect = imgAbout.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        imgAbout.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    imgAbout.addEventListener("mouseleave", () => {
+        imgAbout.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+    });
 }
-
-window.addEventListener("scroll", reveal);
-window.addEventListener("load", reveal);
-
-
-
-
-
-
-
-
-
-
